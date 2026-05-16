@@ -2,7 +2,7 @@ import os, shutil
 import asyncio
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg') # Обязательно для работы в боте!
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
@@ -97,7 +97,6 @@ async def handle_document(message: types.Message):
 
     await message.answer("📥 Загружаю и читаю файл...")
     
-    # Скачивание файла
     file = await bot.get_file(file_id)
     file_path = f"temp_{message.from_user.id}_{file_name}"
     await bot.download_file(file.file_path, file_path)
